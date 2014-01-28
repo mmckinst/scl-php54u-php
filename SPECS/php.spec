@@ -32,7 +32,7 @@
 %global mysql_sock %(mysql_config --socket || echo /var/lib/mysql/mysql.sock)
 
 # Regression tests take a long time, you can skip 'em with this
-%{!?runselftest: %{expand: %%global runselftest 0}}
+%{!?runselftest: %{expand: %%global runselftest 1}}
 
 # Use the arch-specific mysql_config binary to avoid mismatch with the
 # arch detection heuristic used by bindir/mysql_config.
@@ -662,10 +662,6 @@ mkdir build-cgi build-apache build-embedded build-zts build-ztscli build-litespe
 rm -f ext/standard/tests/file/bug21131.phpt
 # php_egg_logo_guid() removed by patch41
 rm -f tests/basic/php_egg_logo_guid.phpt
-# affected by systzdata patch
-rm -f ext/date/tests/timezone_location_get.phpt
-# fails sometime
-rm -f ext/sockets/tests/mcast_ipv?_recv.phpt
 
 # Tests that fail.
 rm -f ext/standard/tests/file/bug22414.phpt \
@@ -1390,11 +1386,9 @@ fi
 %files mysqlnd -f files.mysqlnd
 
 %changelog
-* Thu Jan 23 2014 Mark McKinstry <mmckinst@nexcess.net> - 5.4.24-2.ius
+* Thu Jan 28 2014 Mark McKinstry <mmckinst@nexcess.net> - 5.4.24-2.ius
 - take out all the Provides/Requires stuff for the yum replace plugin
 - add scl stuff (using Red Hat's php54 spec as a guide)
-- remove mcast_ipv?_recv.phpt and timezone_location_get.phpt (copied from Red
-  Hat)
 - update init script
 
 * Fri Jan 10 2014 Ben Harper <ben.harper@rackspace.com> - 5.4.24-1.ius
