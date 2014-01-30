@@ -189,7 +189,7 @@ Provides: %{?scl_prefix}php(language) = %{version}
 Provides: %{?scl_prefix}php(language)%{?_isa} = %{version}
 # ABI/API check - Arch specific
 Provides: %{?scl_prefix}php-api = %{apiver}, %{?scl_prefix}php-zend-abi = %{zendver}
-Provides: %{?scl_prefix}php(api) = %{apiver}, php(zend-abi) = %{zendver}
+Provides: %{?scl_prefix}php(api) = %{apiver}, %{?scl_prefix}php(zend-abi) = %{zendver}
 # Provides for all builtin/shared modules:
 Provides: %{?scl_prefix}php-bz2
 Provides: %{?scl_prefix}php-calendar
