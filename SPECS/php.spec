@@ -119,7 +119,7 @@ Obsoletes: %{?scl_prefix}php-dbg, %{?scl_prefix}php3, %{?scl_prefix}phpfi, %{?sc
 
 Provides: %{?scl_prefix}php-zts = %{version}-%{release}
 
-Requires: httpd-mmn = %{httpd_mmn}
+Requires: httpd-mmn = %{_httpd_mmn}
 Provides: %{?scl_prefix}mod_php = %{version}-%{release}
 Requires: %{?scl_prefix}php-common = %{version}-%{release}
 # For backwards-compatibility, require php-cli for the time being:
